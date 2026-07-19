@@ -15,22 +15,12 @@ class A {
             return *this;
         }
         ~A(){};
-        int getVal() {return _a;}
-        bool operator<(const A& other) {
-            if (_a < other._a) {
-                return true;
-            }
-            else {
-                return false;
-            }
+        int getValue() const {return _a;}
+        bool operator<(const A& other) const {
+            return (_a < other._a);
         }
-        bool operator>(const A& other) {
-            if (_a > other._a) {
-                return true;
-            }
-            else {
-                return false;
-            }
+        bool operator>(const A& other) const {
+            return (_a > other._a);
         }
 };
 
@@ -47,7 +37,7 @@ class B {
             return *this;
         }
         ~B(){}
-        int getValue(){return _b;}
+        int getValue() const {return _b;}
 };
 
 int main() {
@@ -61,10 +51,10 @@ int main() {
     std::cout<<"swap performed\n";
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n\n";
 
-    std::cout<<"aA = "<<aA.getVal()<<" and bA = "<<bA.getVal()<<"\n";
+    std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
     swap(aA, bA);
     std::cout<<"swap performed\n";
-    std::cout<<"aA = "<<aA.getVal()<<" and bA = "<<bA.getVal()<<"\n\n";
+    std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n\n";
 
 
     std::cout<<"---------- 2: MIN tests: ----------\n\n";
@@ -75,16 +65,16 @@ int main() {
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n";
     std::cout<<"The min value between x and y is: "<<min(x, y)<<"\n\n";
 
-    std::cout<<"aA = "<<aA.getVal()<<" and bA = "<<bA.getVal()<<"\n";
-    std::cout<<"The min value between aA and bA is: "<<min(aA, bA).getVal()<<"\n\n";
+    std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
+    std::cout<<"The min value between aA and bA is: "<<min(aA, bA).getValue()<<"\n\n";
 
     std::cout<<"---------- 3: MAX tests: ----------\n\n";
 
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n";
     std::cout<<"The max value between x and y is: "<<max(x, y)<<"\n\n";
 
-    std::cout<<"aA = "<<aA.getVal()<<" and bA = "<<bA.getVal()<<"\n";
-    std::cout<<"The max value between aA and bA is: "<<max(aA, bA).getVal()<<"\n\n";
+    std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
+    std::cout<<"The max value between aA and bA is: "<<max(aA, bA).getValue()<<"\n\n";
 
     std::cout<<"---------- end of my personal tests ----------\n";
 
