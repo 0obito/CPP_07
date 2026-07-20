@@ -1,4 +1,4 @@
-#include <stddef.h>
+#include <cstddef>
 #include <stdexcept>
 
 template <typename T>
@@ -6,28 +6,31 @@ Array<T>::Array() : _size(0), _arr(NULL) {
 }
 
 template <typename T>
-Array<T>::Array(unsigned int n) : _size(n), _arr(new T[n]()) {
+Array<T>::Array(unsigned int n) : _size(n), _arr(n == 0 ? NULL : new T[n]()) {
 }
 
 template <typename T>
-Array<T>::Array(const Array& other) : _size(other._size), _arr(new T[_size]()) {
+Array<T>::Array(const Array& other) : _size(other._size), _arr(_size == 0 ? NULL : new T[_size]()) {
+    for (size_t i = 0; i < _size; i++)
+        _arr[i] = other._arr[i];
 }
 
 template <typename T>
 Array<T>& Array<T>::operator=(const Array& other) {
     if (this != &other) {
+        Array<T> tmp(other);
+        T* arrAdd = tmp._arr;
+        tmp._arr = _arr;
+        _arr = arrAdd;
+
         _size = other._size;
-        if (_arr != NULL)
-            delete _arr;
-        _arr = new T[_size]();
     }
     return *this;
 }
 
 template <typename T>
 Array<T>::~Array() {
-    if (_arr != NULL)
-        delete[] _arr;
+    delete[] _arr;
 }
 
 template <typename T>
