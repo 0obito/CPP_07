@@ -47,34 +47,34 @@ int main() {
     std::cout<<"---------- 1: SWAP tests: ----------\n\n";
 
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n";
-    swap(x, y);
+    ::swap(x, y);
     std::cout<<"swap performed\n";
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n\n";
 
     std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
-    swap(aA, bA);
+    ::swap(aA, bA);
     std::cout<<"swap performed\n";
     std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n\n";
 
 
     std::cout<<"---------- 2: MIN tests: ----------\n\n";
     // back to how it was first
-    swap(x, y);
-    swap(aA, bA);
+    ::swap(x, y);
+    ::swap(aA, bA);
 
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n";
-    std::cout<<"The min value between x and y is: "<<min(x, y)<<"\n\n";
+    std::cout<<"The min value between x and y is: "<<::min(x, y)<<"\n\n";
 
     std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
-    std::cout<<"The min value between aA and bA is: "<<min(aA, bA).getValue()<<"\n\n";
+    std::cout<<"The min value between aA and bA is: "<<::min(aA, bA).getValue()<<"\n\n";
 
     std::cout<<"---------- 3: MAX tests: ----------\n\n";
 
     std::cout<<"x = "<<x<<" and y = "<<y<<"\n";
-    std::cout<<"The max value between x and y is: "<<max(x, y)<<"\n\n";
+    std::cout<<"The max value between x and y is: "<<::max(x, y)<<"\n\n";
 
     std::cout<<"aA = "<<aA.getValue()<<" and bA = "<<bA.getValue()<<"\n";
-    std::cout<<"The max value between aA and bA is: "<<max(aA, bA).getValue()<<"\n\n";
+    std::cout<<"The max value between aA and bA is: "<<::max(aA, bA).getValue()<<"\n\n";
 
     std::cout<<"---------- end of my personal tests ----------\n";
 
