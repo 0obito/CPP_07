@@ -1,7 +1,7 @@
 #ifndef ITER_HPP
 #define ITER_HPP
 
-#include <stddef.h>
+#include <cstddef>
 
 template <typename T, typename F>
 void iter(T* arr, const size_t size, F f) {
